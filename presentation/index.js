@@ -44,23 +44,22 @@ const images = {
 preloader(images);
 
 const theme = createTheme({
-  /* #31255E*/
-  /* primary: "#a598d6"*/
-  primary: "#ff4081",
+  primary: "#a598d6",
   secondary: "#000000"
 });
 
 const hrStyle = {
-  borderColor: "#ff4081",
-  margin: "0",
+  borderColor: theme.screen.colors.primary,
+  margin: "0"
 };
 
 export default class Presentation extends React.Component {
   render() {
     return (
       <Spectacle theme={theme}>
-        <Deck transition={["zoom", "slide"]} transitionDuration={500} progress="pacman">
-          <Slide transition={["zoom"]} bgImage={images.interwebs.replace("/", "")} bgDarken={0.55}>
+        {/* zoom slide fade spin */}
+        <Deck transition={["slide"]} transitionDuration={250} progress="pacman">
+          <Slide bgImage={images.interwebs.replace("/", "")} bgDarken={0.55}>
             <Heading size={1} fit caps lineHeight={1} textColor="primary">
               Werkgroep Website
             </Heading>
@@ -190,8 +189,18 @@ export default class Presentation extends React.Component {
           </Slide>
           <Slide bgColor="secondary" textColor="primary">
             <Heading fit size={1} textColor="primary">
-              Questions?
+              Find the source at
             </Heading>
+            <Text fit margin="1em 0">
+            <Link href="https://github.com/ProfessorFrancken/ProfessorFrancken" textColor="tertiary">
+              https://github.com/ProfessorFrancken/ProfessorFrancken
+            </Link>
+            </Text>
+            <Appear>
+              <Heading fit size={1} textColor="primary">
+                Questions?
+              </Heading>
+            </Appear>
           </Slide>
         </Deck>
       </Spectacle>
